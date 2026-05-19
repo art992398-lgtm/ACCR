@@ -1,28 +1,42 @@
 const https = require('https');
+const url = require('url');
 
 const MATON_KEY = process.env.MATON_API_KEY;
 const GMAIL_CONN = process.env.GMAIL_CONNECTION_ID;
 
-function fetchJSON(url, headers = {}) {
+function fetchJSON(reqUrl, headers) {
   return new Promise((resolve, reject) => {
-    const req = https.get(url, { headers }, (res) => {
+    const parsed = url.parse(reqUrl);
+    const options = {
+      hostname: parsed.hostname,
+      path: parsed.path,
+      method: 'GET',
+      headers: Object.assign({
+        'Authorization': `Bearer ${MATON_KEY}`,
+        'Maton-Connection': GMAIL_CONN,
+      }, headers || {}),
+    };
+    const req = https.request(options, (res) => {
       let data = '';
-      res.on('data', (chunk) => (data += chunk));
+      res.on('data', (chunk) => { data += chunk; });
       res.on('end', () => {
-        try { resolve(JSON.parse(data)); }
-        catch (e) { reject(new Error('Invalid JSON: ' + data.slice(0, 200))); }
+        let parsed;
+        try { parsed = JSON.parse(data); } catch (e) {
+          return reject(new Error(`Non-JSON (${res.statusCode}): ${data.slice(0, 200)}`));
+        }
+        if (res.statusCode >= 400) {
+          return reject(new Error(`HTTP ${res.statusCode}: ${JSON.stringify(parsed).slice(0, 300)}`));
+        }
+        resolve(parsed);
       });
     });
     req.on('error', reject);
+    req.end();
   });
 }
 
 function gmailFetch(path) {
-  const url = `https://api.maton.ai/google-mail/gmail/v1/users/me/${path}`;
-  return fetchJSON(url, {
-    Authorization: `Bearer ${MATON_KEY}`,
-    'Maton-Connection': GMAIL_CONN,
-  });
+  return fetchJSON(`https://api.maton.ai/google-mail/gmail/v1/users/me/${path}`);
 }
 
 function decodeBase64(data) {
@@ -32,7 +46,8 @@ function decodeBase64(data) {
 
 function extractBody(payload) {
   const mime = payload.mimeType || '';
-  if (mime === 'text/plain' && payload.body?.data) return decodeBase64(payload.body.data);
+  if (mime === 'text/plain' && payload.body && payload.body.data)
+    return decodeBase64(payload.body.data);
   if (payload.parts) {
     for (const part of payload.parts) {
       const r = extractBody(part);
@@ -47,15 +62,12 @@ function cleanText(text) {
 }
 
 function parseDate(dateStr) {
-  try {
-    return new Date(dateStr.replace(/\s*\(.*\)/, '').trim());
-  } catch {
-    return new Date();
-  }
+  try { return new Date(dateStr.replace(/\s*\(.*\)/, '').trim()); }
+  catch { return new Date(); }
 }
 
 function formatDate(d) {
-  if (isNaN(d)) return '';
+  if (!d || isNaN(d)) return '';
   return d.toLocaleDateString('th-TH', { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
@@ -66,83 +78,62 @@ function extractCompanyJobbkk(body) {
 
 function extractJobThaiSubject(subject) {
   const m = subject.match(/ใบสมัครตำแหน่ง\s+(.+?)\s+ถูกส่งถึง\s+(.+?)\s+แล้ว/);
-  if (m) return { position: m[1].trim(), company: m[2].trim() };
-  return null;
+  return m ? { position: m[1].trim(), company: m[2].trim() } : null;
 }
 
 function extractJobsdbSent(body) {
   let m = body.match(/ตำแหน่งงาน\s+(.+?)\s+ไปยัง\s+(.+?)\s+เรียบร้อย/);
   if (m) return { position: m[1].trim(), company: m[2].trim() };
   m = body.match(/ใบสมัครงานตำแหน่ง\s+(.+?)\s+ของคุณถูกส่งไปยัง\s+(.+?)\s+เรียบร้อย/);
-  if (m) return { position: m[1].trim(), company: m[2].trim() };
-  return null;
+  return m ? { position: m[1].trim(), company: m[2].trim() } : null;
 }
 
 function parseEmail(e) {
   const { sender, subject, date, body } = e;
   const dateObj = parseDate(date);
   const result = {
-    id: e.id,
-    date: formatDate(dateObj),
-    dateSort: dateObj.getTime() || 0,
-    subject,
-    sender,
-    company: '',
-    position: '',
-    source: '',
-    category: '',
-    status: '',
+    id: e.id, date: formatDate(dateObj), dateSort: dateObj.getTime() || 0,
+    subject, sender, company: '', position: '', source: '', category: '', status: '',
   };
 
   if (sender.includes('jobbkk.com')) {
     result.source = 'JOBBKK';
     if (sender.includes('apply@jobbkk.com')) {
-      result.category = 'sent';
-      result.status = 'applied';
+      result.category = 'sent'; result.status = 'applied';
       const m = subject.match(/Application letter in\s+(.+)/);
       if (m) result.position = m[1].trim();
       result.company = extractCompanyJobbkk(body);
-    } else {
-      result.category = 'newsletter';
-    }
+    } else { result.category = 'newsletter'; }
   } else if (sender.includes('jobthai.com')) {
     result.source = 'JobThai';
     if (sender.includes('upload-file@application.jobthai.com')) {
-      result.category = 'sent';
-      result.status = 'applied';
+      result.category = 'sent'; result.status = 'applied';
       const parsed = extractJobThaiSubject(subject);
       if (parsed) { result.position = parsed.position; result.company = parsed.company; }
-    } else {
-      result.category = 'newsletter';
-    }
+    } else { result.category = 'newsletter'; }
   } else if (sender.includes('jobsdb.com')) {
     result.source = 'Jobsdb';
     if (subject.includes('ส่งใบสมัครของคุณเรียบร้อยแล้ว')) {
-      result.category = 'sent';
-      result.status = 'applied';
+      result.category = 'sent'; result.status = 'applied';
       const parsed = extractJobsdbSent(body);
       if (parsed) { result.position = parsed.position; result.company = parsed.company; }
     } else if (subject.includes('ได้ดูใบสมัครของคุณสำหรับ')) {
-      result.category = 'response';
-      result.status = 'viewed';
+      result.category = 'response'; result.status = 'viewed';
       const m = subject.match(/^(.+?)\s+ได้ดูใบสมัครของคุณสำหรับ\s+(.+)$/);
       if (m) { result.company = m[1].trim(); result.position = m[2].trim(); }
-    } else if (subject.includes('กิจกรรมใหม่') || subject.includes('นัดสัมภาษณ์') || subject.includes('interview')) {
+    } else if (subject.includes('กิจกรรมใหม่') || subject.includes('นัดสัมภาษณ์')) {
       result.category = 'response';
       result.status = subject.includes('นัดสัมภาษณ์') ? 'interview' : 'activity';
-    } else {
-      result.category = 'newsletter';
-    }
+    } else { result.category = 'newsletter'; }
   }
-
   return result;
 }
 
 const COMPANY_INFO = {
   'PHITHAN LEASING CO., LTD.': {
     industry: 'การเงิน / สินเชื่อเช่าซื้อ',
-    summary: 'บริษัทให้บริการสินเชื่อเช่าซื้อและลีสซิ่ง เน้นรถยนต์และเครื่องจักร มีสาขาทั่วประเทศ กำลังขยายทีม IT เพื่อพัฒนาระบบภายใน',
-    tips: 'ควรเตรียมพูดถึงประสบการณ์กับระบบ Backend / Database เพราะงานเน้นระบบ Back-office ขององค์กรการเงิน',
+    summary: 'บริษัทให้บริการสินเชื่อเช่าซื้อและลีสซิ่ง เน้นรถยนต์และเครื่องจักร มีสาขาทั่วประเทศ',
+    tips: 'เตรียมพูดถึงประสบการณ์กับระบบ Backend / Database เพราะงานเน้นระบบ Back-office ขององค์กรการเงิน',
   },
   'NILECON (THAILAND) CO., LTD.': {
     industry: 'IT / Mobile Application',
@@ -156,7 +147,7 @@ const COMPANY_INFO = {
   },
   'บริษัท โสมาภา อินฟอร์เมชั่น เทคโนโลยี จำกัด (มหาชน)': {
     industry: 'IT Services / Software House',
-    summary: 'บริษัทพัฒนา Software และ IT Solutions สำหรับธุรกิจ จดทะเบียนในตลาดหลักทรัพย์ MAI ให้บริการทั้งภาครัฐและเอกชน',
+    summary: 'บริษัทพัฒนา Software และ IT Solutions สำหรับธุรกิจ จดทะเบียนในตลาดหลักทรัพย์ MAI',
     tips: 'Software House มักมีโปรเจกต์หลากหลาย ควรพูดถึง Stack ที่ใช้คล่องและความสามารถเรียนรู้เทคโนโลยีใหม่',
   },
   'บริษัท อินเทอร์เน็ตประเทศไทย จำกัด (มหาชน)': {
@@ -203,13 +194,12 @@ async function fetchAllEmails() {
 
   for (const q of queries) {
     const data = await gmailFetch(`messages?maxResults=50&q=${encodeURIComponent(q)}`);
-    for (const m of data.messages || []) {
+    for (const m of (data.messages || [])) {
       if (!seen.has(m.id)) { seen.add(m.id); msgIds.push(m.id); }
     }
   }
 
   const emails = [];
-  // Fetch in batches to avoid overwhelming the API
   for (const id of msgIds) {
     try {
       const msg = await gmailFetch(`messages/${id}?format=full`);
@@ -224,17 +214,33 @@ async function fetchAllEmails() {
         body,
       });
     } catch (err) {
-      // skip on error
+      // skip individual message errors silently
     }
-    await new Promise((r) => setTimeout(r, 120));
+    await new Promise((r) => setTimeout(r, 100));
   }
-
   return emails;
 }
 
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=60');
+
+  // Debug endpoint: /api/emails?debug=1
+  if (req.query && req.query.debug === '1') {
+    try {
+      const testData = await gmailFetch('messages?maxResults=3&q=from:(apply@jobbkk.com)');
+      return res.status(200).json({
+        env: {
+          hasMATON_KEY: !!MATON_KEY,
+          keyLength: MATON_KEY ? MATON_KEY.length : 0,
+          hasGMAIL_CONN: !!GMAIL_CONN,
+        },
+        testFetch: testData,
+      });
+    } catch (err) {
+      return res.status(200).json({ debugError: err.message });
+    }
+  }
 
   try {
     const rawEmails = await fetchAllEmails();
@@ -248,7 +254,6 @@ module.exports = async (req, res) => {
       .filter((e) => e.category === 'response')
       .sort((a, b) => b.dateSort - a.dateSort);
 
-    // Attach company info
     const attachInfo = (list) =>
       list.map((e) => ({ ...e, companyInfo: COMPANY_INFO[e.company] || null }));
 
