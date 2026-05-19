@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCR - ติดตามการสมัครงาน</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d2e;
+    --surface2: #242738;
+    --border: #2e3150;
+    --text: #e2e8f0;
+    --text-muted: #8892a4;
+    --blue: #6366f1;
+    --blue-light: #818cf8;
+    --green: #10b981;
+    --orange: #f59e0b;
+    --red: #ef4444;
+    --purple: #8b5cf6;
+    --cyan: #06b6d4;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Noto Sans Thai', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #1a1d2e 0%, #242738 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+  .header h1 span { color: var(--blue-light); }
+  .header-sub { color: var(--text-muted); font-size: 13px; margin-top: 4px; }
+  .refresh-btn {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--surface2); border: 1px solid var(--border);
+    color: var(--text-muted); border-radius: 8px; padding: 8px 14px;
+    cursor: pointer; font-size: 13px; transition: all 0.15s;
+  }
+  .refresh-btn:hover { color: var(--text); border-color: #454a6b; }
+  .refresh-btn.spinning svg { animation: spin 1s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .stats {
+    display: flex; gap: 16px; padding: 20px 32px;
+    background: var(--surface); border-bottom: 1px solid var(--border); flex-wrap: wrap;
+  }
+  .stat-card {
+    flex: 1; min-width: 110px;
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 18px;
+  }
+  .stat-num { font-size: 28px; font-weight: 700; line-height: 1; }
+  .stat-label { color: var(--text-muted); font-size: 12px; margin-top: 3px; }
+  .stat-card.blue .stat-num { color: var(--blue-light); }
+  .stat-card.green .stat-num { color: var(--green); }
+  .stat-card.orange .stat-num { color: var(--orange); }
+  .stat-card.purple .stat-num { color: var(--purple); }
+
+  .main { padding: 24px 32px; max-width: 1400px; margin: 0 auto; }
+
+  .tabs {
+    display: flex; gap: 4px; margin-bottom: 20px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 4px; width: fit-content;
+  }
+  .tab {
+    padding: 8px 20px; border-radius: 7px; cursor: pointer;
+    font-size: 13px; font-weight: 500; color: var(--text-muted);
+    border: none; background: none; transition: all 0.15s;
+  }
+  .tab.active { background: var(--blue); color: white; }
+  .tab:hover:not(.active) { background: var(--surface2); color: var(--text); }
+
+  .toolbar {
+    display: flex; gap: 10px; margin-bottom: 20px;
+    align-items: center; flex-wrap: wrap;
+  }
+  .search-input {
+    flex: 1; min-width: 200px; max-width: 360px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 9px 14px 9px 36px;
+    color: var(--text); font-size: 13px; outline: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24' fill='none' stroke='%238892a4' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: 12px center;
+  }
+  .search-input:focus { border-color: var(--blue); }
+  .filter-select {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 9px 14px; color: var(--text);
+    font-size: 13px; outline: none; cursor: pointer;
+  }
+  .count-label { color: var(--text-muted); font-size: 13px; margin-left: auto; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+  }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px;
+    transition: border-color 0.15s, transform 0.1s;
+  }
+  .card:hover { border-color: #454a6b; transform: translateY(-1px); }
+  .card.has-info { border-left: 3px solid var(--blue); }
+  .response-card { border-left: 3px solid var(--green); }
+  .card-interview { border-left: 3px solid var(--orange) !important; }
+
+  .card-header {
+    display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 10px;
+  }
+  .card-left { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+  .badge {
+    font-size: 10px; font-weight: 600; padding: 2px 8px;
+    border-radius: 20px; letter-spacing: 0.3px; text-transform: uppercase;
+  }
+  .badge-blue { background: rgba(99,102,241,.15); color: #a5b4fc; border: 1px solid rgba(99,102,241,.3); }
+  .badge-green { background: rgba(16,185,129,.15); color: #6ee7b7; border: 1px solid rgba(16,185,129,.3); }
+  .badge-orange { background: rgba(245,158,11,.15); color: #fcd34d; border: 1px solid rgba(245,158,11,.3); }
+  .badge-gray { background: rgba(148,163,184,.1); color: #94a3b8; border: 1px solid rgba(148,163,184,.2); }
+
+  .status-badge { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+  .status-badge.viewed { background: rgba(16,185,129,.15); color: #6ee7b7; border: 1px solid rgba(16,185,129,.3); }
+  .status-badge.activity { background: rgba(139,92,246,.15); color: #c4b5fd; border: 1px solid rgba(139,92,246,.3); }
+  .status-badge.interview { background: rgba(245,158,11,.15); color: #fcd34d; border: 1px solid rgba(245,158,11,.3); }
+
+  .card-date { font-size: 11px; color: var(--text-muted); }
+  .card-company { font-size: 14px; font-weight: 600; margin-bottom: 4px; line-height: 1.4; }
+  .card-position { font-size: 13px; color: var(--cyan); margin-bottom: 6px; }
+  .card-industry { margin-bottom: 8px; }
+  .card-industry span {
+    font-size: 11px; color: var(--text-muted);
+    background: rgba(255,255,255,.05); padding: 2px 8px; border-radius: 4px;
+  }
+
+  .search-btn {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 11px; color: var(--text-muted); text-decoration: none;
+    padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border);
+    transition: all 0.15s; white-space: nowrap;
+  }
+  .search-btn:hover { color: var(--text); border-color: #454a6b; background: var(--surface2); }
+
+  .info-section { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 10px; }
+  .info-toggle {
+    display: flex; align-items: center; gap: 6px;
+    cursor: pointer; color: var(--blue-light); font-size: 12px;
+    font-weight: 500; padding: 4px 0; user-select: none;
+  }
+  .info-toggle:hover { color: white; }
+  .info-toggle .arrow { margin-left: auto; transition: transform 0.2s; }
+  .info-section.open .arrow { transform: rotate(180deg); }
+  .info-content { display: none; padding-top: 10px; }
+  .info-section.open .info-content { display: block; }
+  .info-block { margin-bottom: 10px; }
+  .info-block:last-child { margin-bottom: 0; }
+  .info-label {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 4px;
+  }
+  .info-block.tip .info-label { color: #fbbf24; }
+  .info-text { font-size: 12.5px; color: #c8d3e0; line-height: 1.6; }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* Loading */
+  .loading {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; padding: 80px 20px; gap: 16px;
+    color: var(--text-muted);
+  }
+  .spinner {
+    width: 36px; height: 36px; border: 3px solid var(--border);
+    border-top-color: var(--blue); border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  .loading-text { font-size: 14px; }
+
+  /* Error */
+  .error-box {
+    background: rgba(239,68,68,.08); border: 1px solid rgba(239,68,68,.25);
+    border-radius: 10px; padding: 20px; margin: 20px 0;
+    color: #fca5a5; font-size: 13px;
+  }
+
+  /* Updated time */
+  .updated-at { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  @media (max-width: 600px) {
+    .header, .stats, .main { padding: 16px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>ACCR <span>ติดตามการสมัครงาน</span></h1>
+    <div class="header-sub" id="email-label">Gmail: art992398@gmail.com</div>
+    <div class="updated-at" id="updated-at"></div>
+  </div>
+  <button class="refresh-btn" onclick="loadEmails(true)" id="refresh-btn">
+    <svg id="refresh-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/>
+      <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+    </svg>
+    รีเฟรช
+  </button>
+</div>
+
+<div class="stats" id="stats-bar">
+  <div class="stat-card blue"><div class="stat-num" id="s-sent">-</div><div class="stat-label">ส่งใบสมัครแล้ว</div></div>
+  <div class="stat-card green"><div class="stat-num" id="s-response">-</div><div class="stat-label">บริษัทตอบกลับ</div></div>
+  <div class="stat-card orange"><div class="stat-num" id="s-viewed">-</div><div class="stat-label">เปิดดูใบสมัคร</div></div>
+  <div class="stat-card purple"><div class="stat-num" id="s-interview">-</div><div class="stat-label">นัดสัมภาษณ์</div></div>
+</div>
+
+<div class="main">
+  <div class="tabs">
+    <button class="tab active" id="tab-btn-sent" onclick="switchTab('sent')">ส่งใบสมัครแล้ว</button>
+    <button class="tab" id="tab-btn-response" onclick="switchTab('response')">บริษัทติดต่อกลับ</button>
+  </div>
+
+  <div class="tab-content active" id="tab-sent">
+    <div class="toolbar">
+      <input class="search-input" type="text" placeholder="ค้นหาบริษัท หรือตำแหน่งงาน..." oninput="filterSent()" id="search-sent">
+      <select class="filter-select" onchange="filterSent()" id="filter-source">
+        <option value="">แหล่งที่มาทั้งหมด</option>
+        <option value="JOBBKK">JOBBKK</option>
+        <option value="JobThai">JobThai</option>
+        <option value="Jobsdb">Jobsdb</option>
+      </select>
+      <span class="count-label" id="sent-count"></span>
+    </div>
+    <div id="grid-sent"></div>
+  </div>
+
+  <div class="tab-content" id="tab-response">
+    <div id="grid-response"></div>
+  </div>
+</div>
+
+<script>
+const BADGE = {
+  JOBBKK: '<span class="badge badge-blue">JOBBKK</span>',
+  JobThai: '<span class="badge badge-green">JobThai</span>',
+  Jobsdb: '<span class="badge badge-orange">Jobsdb</span>',
+};
+const STATUS_BADGE = {
+  viewed: '<span class="status-badge viewed">เปิดดูใบสมัคร</span>',
+  activity: '<span class="status-badge activity">กิจกรรมใหม่</span>',
+  interview: '<span class="status-badge interview">นัดสัมภาษณ์</span>',
+};
+
+function escHtml(s) {
+  return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function infoSection(info) {
+  if (!info) return '';
+  return `
+  <div class="info-section">
+    <div class="info-toggle" onclick="this.parentElement.classList.toggle('open')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      ข้อมูลบริษัท / เตรียมสัมภาษณ์
+      <svg class="arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="info-content">
+      <div class="info-block">
+        <div class="info-label">เกี่ยวกับบริษัท</div>
+        <div class="info-text">${escHtml(info.summary)}</div>
+      </div>
+      <div class="info-block tip">
+        <div class="info-label">เคล็ดลับสัมภาษณ์</div>
+        <div class="info-text">${escHtml(info.tips)}</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function searchUrl(company, position) {
+  return `https://www.google.com/search?q=${encodeURIComponent((company + ' ' + (position || '')).trim())}`;
+}
+
+function renderSentCard(e) {
+  const badge = BADGE[e.source] || '<span class="badge badge-gray">Other</span>';
+  const industry = e.companyInfo?.industry || '';
+  return `
+  <div class="card ${e.companyInfo ? 'has-info' : ''}" data-company="${escHtml(e.company).toLowerCase()}" data-position="${escHtml(e.position).toLowerCase()}" data-source="${escHtml(e.source)}">
+    <div class="card-header">
+      <div class="card-left">${badge}<span class="card-date">${escHtml(e.date)}</span></div>
+      <a href="${searchUrl(e.company, e.position)}" target="_blank" class="search-btn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>ค้นหา
+      </a>
+    </div>
+    <div class="card-company">${escHtml(e.company)}</div>
+    <div class="card-position">${escHtml(e.position)}</div>
+    ${industry ? `<div class="card-industry"><span>${escHtml(industry)}</span></div>` : ''}
+    ${infoSection(e.companyInfo)}
+  </div>`;
+}
+
+function renderResponseCard(e) {
+  const badge = STATUS_BADGE[e.status] || '<span class="status-badge">อัพเดต</span>';
+  const cls = e.status === 'interview' ? 'card-interview' : '';
+  return `
+  <div class="card response-card ${cls}">
+    <div class="card-header">
+      <div class="card-left">${badge}<span class="card-date">${escHtml(e.date)}</span></div>
+      <a href="${searchUrl(e.company, e.position)}" target="_blank" class="search-btn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>ค้นหา
+      </a>
+    </div>
+    <div class="card-company">${escHtml(e.company)}</div>
+    ${e.position ? `<div class="card-position">${escHtml(e.position)}</div>` : ''}
+    ${infoSection(e.companyInfo)}
+  </div>`;
+}
+
+function loading(container) {
+  container.innerHTML = `<div class="loading"><div class="spinner"></div><div class="loading-text">กำลังดึงข้อมูลอีเมล...</div></div>`;
+}
+
+let sentData = [], responseData = [];
+
+function filterSent() {
+  const q = document.getElementById('search-sent').value.toLowerCase();
+  const src = document.getElementById('filter-source').value;
+  const cards = document.querySelectorAll('#grid-sent .card');
+  let visible = 0;
+  cards.forEach(c => {
+    const matchQ = !q || c.dataset.company.includes(q) || c.dataset.position.includes(q);
+    const matchS = !src || c.dataset.source === src;
+    c.style.display = matchQ && matchS ? '' : 'none';
+    if (matchQ && matchS) visible++;
+  });
+  document.getElementById('sent-count').textContent = visible + ' รายการ';
+}
+
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-btn-' + name).classList.add('active');
+  document.getElementById('tab-' + name).classList.add('active');
+}
+
+function renderAll(data) {
+  sentData = data.sent || [];
+  responseData = data.response || [];
+  const stats = data.stats || {};
+
+  document.getElementById('s-sent').textContent = stats.totalSent ?? '-';
+  document.getElementById('s-response').textContent = stats.totalResponse ?? '-';
+  document.getElementById('s-viewed').textContent = stats.totalViewed ?? '-';
+  document.getElementById('s-interview').textContent = stats.totalInterview ?? '-';
+
+  document.getElementById('tab-btn-sent').textContent = `ส่งใบสมัครแล้ว (${sentData.length})`;
+  document.getElementById('tab-btn-response').textContent = `บริษัทติดต่อกลับ (${responseData.length})`;
+
+  document.getElementById('grid-sent').innerHTML = sentData.map(renderSentCard).join('');
+  document.getElementById('sent-count').textContent = sentData.length + ' รายการ';
+
+  if (responseData.length === 0) {
+    document.getElementById('grid-response').innerHTML = `<div class="loading" style="padding:40px"><div style="color:var(--text-muted)">ยังไม่มีบริษัทติดต่อกลับ</div></div>`;
+  } else {
+    document.getElementById('grid-response').innerHTML = `<div class="grid">${responseData.map(renderResponseCard).join('')}</div>`;
+  }
+
+  // Wrap sent in grid after render
+  const sentGrid = document.getElementById('grid-sent');
+  if (!sentGrid.classList.contains('grid')) {
+    sentGrid.classList.add('grid');
+  }
+
+  if (data.updatedAt) {
+    const d = new Date(data.updatedAt);
+    document.getElementById('updated-at').textContent = 'อัพเดตล่าสุด: ' + d.toLocaleString('th-TH');
+  }
+}
+
+async function loadEmails(manual = false) {
+  const btn = document.getElementById('refresh-btn');
+  const icon = document.getElementById('refresh-icon');
+  btn.classList.add('spinning');
+  icon.style.animation = 'spin 0.8s linear infinite';
+
+  if (manual) {
+    loading(document.getElementById('grid-sent'));
+    loading(document.getElementById('grid-response'));
+  }
+
+  try {
+    const res = await fetch('/api/emails');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    renderAll(data);
+  } catch (err) {
+    const msg = `<div class="error-box">ไม่สามารถดึงข้อมูลได้: ${err.message}<br><small>ลองรีเฟรชใหม่อีกครั้ง</small></div>`;
+    document.getElementById('grid-sent').innerHTML = msg;
+  } finally {
+    btn.classList.remove('spinning');
+    icon.style.animation = '';
+  }
+}
+
+loadEmails();
+</script>
+</body>
+</html>
