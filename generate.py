@@ -458,10 +458,7 @@ def logo_html(info, company):
     colors = ["#6366f1","#10b981","#f59e0b","#8b5cf6","#06b6d4","#ef4444","#ec4899","#14b8a6"]
     color = colors[sum(ord(c) for c in company) % len(colors)]
     if domain:
-        return f'''<div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/{domain}" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:{color};display:none">{esc(initial)}</div>
-        </div>'''
+        return f'<div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/{domain}" alt="" onerror="this.style.display=\'none\';var fb=this.nextElementSibling;if(fb)fb.style.display=\'flex\'"><div class="logo-fallback" style="background:{color};display:none">{esc(initial)}</div></div>'
     return f'<div class="logo-wrap"><div class="logo-fallback" style="background:{color}">{esc(initial)}</div></div>'
 
 def stack_pills(stack):
