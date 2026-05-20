@@ -96,20 +96,20 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
 <div class="header">
   <div>
     <h1>ACCR <span>ติดตามการสมัครงาน</span></h1>
-    <div class="header-sub">Gmail: art992398@gmail.com &nbsp;·&nbsp; อัพเดตล่าสุด: 20 May 2026 00:23 น.</div>
+    <div class="header-sub">Gmail: art992398@gmail.com &nbsp;·&nbsp; อัพเดตล่าสุด: 20 May 2026 00:31 น.</div>
   </div>
 </div>
 
 <div class="stats">
-  <div class="stat-card blue"><div class="stat-num">36</div><div class="stat-label">ส่งใบสมัครแล้ว</div></div>
+  <div class="stat-card blue"><div class="stat-num">37</div><div class="stat-label">ส่งใบสมัครแล้ว</div></div>
   <div class="stat-card green"><div class="stat-num">3</div><div class="stat-label">บริษัทตอบกลับ</div></div>
   <div class="stat-card orange"><div class="stat-num">2</div><div class="stat-label">เปิดดูใบสมัคร</div></div>
   <div class="stat-card purple"><div class="stat-num">0</div><div class="stat-label">นัดสัมภาษณ์</div></div>
 </div>
 
 <div class="tab-bar">
-  <button class="tab active" id="t-all" onclick="switchTab('all',this)">ทั้งหมด (36)</button>
-  <button class="tab tab-jobbkk" id="t-JOBBKK" onclick="switchTab('JOBBKK',this)">JOBBKK (27)</button>
+  <button class="tab active" id="t-all" onclick="switchTab('all',this)">ทั้งหมด (37)</button>
+  <button class="tab tab-jobbkk" id="t-JOBBKK" onclick="switchTab('JOBBKK',this)">JOBBKK (28)</button>
   <button class="tab tab-jobthai" id="t-JobThai" onclick="switchTab('JobThai',this)">JobThai (3)</button>
   <button class="tab tab-jobsdb" id="t-Jobsdb" onclick="switchTab('Jobsdb',this)">Jobsdb (6)</button>
   <div class="tab-spacer"></div>
@@ -122,9 +122,32 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
   <div class="tab-content active" id="tab-all">
     <div class="toolbar">
       <input class="search-input" type="text" placeholder="ค้นหาบริษัท หรือตำแหน่งงาน..." oninput="filterAll(this.value)" id="search-all">
-      <span class="count-label" id="count-all">36 รายการ</span>
+      <span class="count-label" id="count-all">37 รายการ</span>
     </div>
     <div class="grid" id="grid-all">
+    <div class="card" data-company="บริษัท เอ็มโอแค็ป จำกัด" data-position="full-stack developer (ai &amp; crm focus)" data-source="JOBBKK">
+      <div class="card-source-bar" style="background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.35)">
+        <span class="source-dot" style="background:#6366f1"></span>
+        <span style="color:#a5b4fc;font-size:11px;font-weight:600">JOBBKK</span>
+        <span class="card-date">20 May 2026</span>
+        <a href="https://www.google.com/search?q=%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%A9%E0%B8%B1%E0%B8%97%20%E0%B9%80%E0%B8%AD%E0%B9%87%E0%B8%A1%E0%B9%82%E0%B8%AD%E0%B9%81%E0%B8%84%E0%B9%87%E0%B8%9B%20%E0%B8%88%E0%B8%B3%E0%B8%81%E0%B8%B1%E0%B8%94%20Full-Stack%20Developer%20%28AI%20%26%20CRM%20Focus%29" target="_blank" class="search-btn">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>ค้นหา
+        </a>
+      </div>
+      <div class="card-body">
+        <div class="logo-wrap"><div class="logo-fallback" style="background:#ec4899">บ</div></div>
+        <div class="card-content">
+          <div class="card-company">บริษัท เอ็มโอแค็ป จำกัด</div>
+          <div class="card-position">Full-Stack Developer (AI &amp; CRM Focus)</div>
+          
+          
+          
+        </div>
+      </div>
+      
+      
+    </div>
+
     <div class="card" data-company="เนกเจนซอฟ" data-position="software developer" data-source="JOBBKK">
       <div class="card-source-bar" style="background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.35)">
         <span class="source-dot" style="background:#6366f1"></span>
@@ -135,10 +158,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/nextgensoftware.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#f59e0b;display:none">เ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/nextgensoftware.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#f59e0b;display:none">เ</div></div>
         <div class="card-content">
           <div class="card-company">เนกเจนซอฟ</div>
           <div class="card-position">Software Developer</div>
@@ -178,10 +198,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/wintelsoftech.com" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#10b981;display:none">W</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/wintelsoftech.com" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#10b981;display:none">W</div></div>
         <div class="card-content">
           <div class="card-company">WINTEL SOFTECH RECRUITMENT</div>
           <div class="card-position">Front-end/Full stack Developers</div>
@@ -221,10 +238,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/iconex.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#f59e0b;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/iconex.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#f59e0b;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท ไอโคเน็กซ์ จำกัด</div>
           <div class="card-position">Programmer (New Graduates, Internship, Cooperative Education)</div>
@@ -264,10 +278,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/professional1.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#6366f1;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/professional1.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#6366f1;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท โปรเฟสชันแนลวัน จำกัด</div>
           <div class="card-position">Software Developerr (สมุทรสาคร)</div>
@@ -307,10 +318,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/phoonthana.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ec4899;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/phoonthana.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ec4899;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท พูนธนามาร์เก็ตติ้ง จำกัด</div>
           <div class="card-position">Junior Programmer/Developer</div>
@@ -350,10 +358,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/convergence-th.com" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#f59e0b;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/convergence-th.com" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#f59e0b;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท คอนเวอร์เจนซ์ เทคโนโลยี จำกัด (Convergence Technology Co.Ltd.)</div>
           <div class="card-position">Software Developer</div>
@@ -393,10 +398,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/bjchealth.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#6366f1;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/bjchealth.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#6366f1;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท โรงพยาบาล บีเจเอช จำกัด</div>
           <div class="card-position">Mobile Application Developer (IT)</div>
@@ -436,10 +438,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/siriwattana.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#f59e0b;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/siriwattana.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#f59e0b;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท ศิริวัฒนา อินเตอร์พริ้นท์ จำกัด (มหาชน)<span class="listed-badge">SET: SVOA</span></div>
           <div class="card-position">Programmer</div>
@@ -479,10 +478,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/somapah.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#06b6d4;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/somapah.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#06b6d4;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท โสมาภา อินฟอร์เมชั่น เทคโนโลยี จำกัด (มหาชน)<span class="listed-badge">SET: SMPC</span></div>
           <div class="card-position">Programmer &amp; Web Application Programmer</div>
@@ -522,10 +518,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/inet.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#10b981;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/inet.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#10b981;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท อินเทอร์เน็ตประเทศไทย จำกัด (มหาชน)<span class="listed-badge">SET: INET</span></div>
           <div class="card-position">Programmer / Developer (ยินดีรับนักศึกษาจบใหม่)</div>
@@ -565,10 +558,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/maholan.com" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ec4899;display:none">M</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/maholan.com" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ec4899;display:none">M</div></div>
         <div class="card-content">
           <div class="card-company">Maholan Co., Ltd.</div>
           <div class="card-position">Fullstack Developer</div>
@@ -608,10 +598,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/futuremakers.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#06b6d4;display:none">F</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/futuremakers.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#06b6d4;display:none">F</div></div>
         <div class="card-content">
           <div class="card-company">Future Makers Co., Ltd.</div>
           <div class="card-position">Full Stack Javascript Developer</div>
@@ -651,10 +638,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/aztek.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ef4444;display:none">A</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/aztek.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ef4444;display:none">A</div></div>
         <div class="card-content">
           <div class="card-company">AZTEK CO., LTD.</div>
           <div class="card-position">Full Stack Developer</div>
@@ -694,10 +678,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/phithanleasing.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ef4444;display:none">P</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/phithanleasing.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ef4444;display:none">P</div></div>
         <div class="card-content">
           <div class="card-company">PHITHAN LEASING CO., LTD.</div>
           <div class="card-position">PROGRAMMER SOFTWARE DEVELOPER</div>
@@ -737,10 +718,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/plusinsight.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#f59e0b;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/plusinsight.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#f59e0b;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท พลัสอินไซ จำกัด</div>
           <div class="card-position">Junior Front-End Developer</div>
@@ -780,10 +758,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/convergence-th.com" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#f59e0b;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/convergence-th.com" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#f59e0b;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท คอนเวอร์เจนซ์ เทคโนโลยี จำกัด (Convergence Technology Co.Ltd.)</div>
           <div class="card-position">Software Developer</div>
@@ -823,10 +798,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/apexcircuit.com" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ec4899;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/apexcircuit.com" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ec4899;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท เอเพ็กซ์ เซอร์คิต (ไทยแลนด์) จำกัด</div>
           <div class="card-position">Programmer (เขียนโปรแกรม)</div>
@@ -912,10 +884,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/softsquare.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#06b6d4;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/softsquare.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#06b6d4;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท ซอฟต์สแควร์ 1999 จำกัด</div>
           <div class="card-position">Software Developer [สนง.ใหญ่ จ.ปทุมธานี]</div>
@@ -955,10 +924,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/silkspan.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ec4899;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/silkspan.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ec4899;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท ซิลค์สแปน อินชัวรันซ์ โบรกเกอร์เรจ จำกัด</div>
           <div class="card-position">Programmer ประจำ Office เอกมัย</div>
@@ -998,10 +964,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/aline.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ef4444;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/aline.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ef4444;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท อะไลน์ โซลูชั่น จำกัด</div>
           <div class="card-position">Programmer</div>
@@ -1081,10 +1044,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/visionnet.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#14b8a6;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/visionnet.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#14b8a6;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท วิชั่นเน็ต จำกัด</div>
           <div class="card-position">Database Programmer, Application Developer</div>
@@ -1147,10 +1107,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/nextgensoftware.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#f59e0b;display:none">เ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/nextgensoftware.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#f59e0b;display:none">เ</div></div>
         <div class="card-content">
           <div class="card-company">เนกเจนซอฟ</div>
           <div class="card-position">Software Developer</div>
@@ -1190,10 +1147,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/giffarine.com" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#10b981;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/giffarine.com" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#10b981;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท กิฟฟารีน สกายไลน์ ยูนิตี้ จำกัด</div>
           <div class="card-position">เจ้าหน้าที่พัฒนาระบบ (Programmer)</div>
@@ -1233,10 +1187,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/bjchealth.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#6366f1;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/bjchealth.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#6366f1;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท โรงพยาบาล บีเจเอช จำกัด</div>
           <div class="card-position">Mobile Application Developer (IT)</div>
@@ -1276,10 +1227,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/absolutetechno.com" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#8b5cf6;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/absolutetechno.com" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#8b5cf6;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท แอ็บโซลูท เทคโนวัน จำกัด</div>
           <div class="card-position">PHP Web Programmer ทั้งแบบ WFH และประจำ Office</div>
@@ -1319,10 +1267,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/smartsolution.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#6366f1;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/smartsolution.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#6366f1;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท สมาร์ทโซลูชั่น แอนด์ เซอร์วิส จำกัด</div>
           <div class="card-position">Web Programmer</div>
@@ -1362,10 +1307,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/sbcf.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ec4899;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/sbcf.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ec4899;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท เครดิตฟองซิเอร์ เอสเบ จำกัด</div>
           <div class="card-position">programmer(โปรแกรมเมอร์)</div>
@@ -1405,10 +1347,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/somapah.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#06b6d4;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/somapah.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#06b6d4;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท โสมาภา อินฟอร์เมชั่น เทคโนโลยี จำกัด (มหาชน)<span class="listed-badge">SET: SMPC</span></div>
           <div class="card-position">Programmer &amp; Web Application Programmer</div>
@@ -1448,10 +1387,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/rx.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ef4444;display:none">R</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/rx.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ef4444;display:none">R</div></div>
         <div class="card-content">
           <div class="card-company">R.X. Company Limited</div>
           <div class="card-position">Programmer</div>
@@ -1491,10 +1427,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/techinvent.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ec4899;display:none">T</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/techinvent.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ec4899;display:none">T</div></div>
         <div class="card-content">
           <div class="card-company">TECHINVENT CO., LTD.</div>
           <div class="card-position">Programmer/โปรแกรมเมอร์</div>
@@ -1534,10 +1467,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/nilecon.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#06b6d4;display:none">N</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/nilecon.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#06b6d4;display:none">N</div></div>
         <div class="card-content">
           <div class="card-company">NILECON (THAILAND) CO., LTD.</div>
           <div class="card-position">React Native Developer</div>
@@ -1577,10 +1507,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/apexcircuit.com" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ec4899;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/apexcircuit.com" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ec4899;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท เอเพ็กซ์ เซอร์คิต (ไทยแลนด์) จำกัด</div>
           <div class="card-position">Programmer (เขียนโปรแกรม)</div>
@@ -1613,8 +1540,30 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
 
   <!-- Per-source tabs -->
   <div class="tab-content" id="tab-JOBBKK">
-    <div class="toolbar"><span class="count-label">27 รายการจาก JOBBKK</span></div>
+    <div class="toolbar"><span class="count-label">28 รายการจาก JOBBKK</span></div>
     <div class="grid">
+    <div class="card" data-company="บริษัท เอ็มโอแค็ป จำกัด" data-position="full-stack developer (ai &amp; crm focus)" data-source="JOBBKK">
+      <div class="card-source-bar" style="background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.35)">
+        <span class="source-dot" style="background:#6366f1"></span>
+        <span style="color:#a5b4fc;font-size:11px;font-weight:600">JOBBKK</span>
+        <span class="card-date">20 May 2026</span>
+        <a href="https://www.google.com/search?q=%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%A9%E0%B8%B1%E0%B8%97%20%E0%B9%80%E0%B8%AD%E0%B9%87%E0%B8%A1%E0%B9%82%E0%B8%AD%E0%B9%81%E0%B8%84%E0%B9%87%E0%B8%9B%20%E0%B8%88%E0%B8%B3%E0%B8%81%E0%B8%B1%E0%B8%94%20Full-Stack%20Developer%20%28AI%20%26%20CRM%20Focus%29" target="_blank" class="search-btn">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>ค้นหา
+        </a>
+      </div>
+      <div class="card-body">
+        <div class="logo-wrap"><div class="logo-fallback" style="background:#ec4899">บ</div></div>
+        <div class="card-content">
+          <div class="card-company">บริษัท เอ็มโอแค็ป จำกัด</div>
+          <div class="card-position">Full-Stack Developer (AI &amp; CRM Focus)</div>
+          
+          
+          
+        </div>
+      </div>
+      
+      
+    </div>
     <div class="card" data-company="เนกเจนซอฟ" data-position="software developer" data-source="JOBBKK">
       <div class="card-source-bar" style="background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.35)">
         <span class="source-dot" style="background:#6366f1"></span>
@@ -1625,10 +1574,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/nextgensoftware.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#f59e0b;display:none">เ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/nextgensoftware.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#f59e0b;display:none">เ</div></div>
         <div class="card-content">
           <div class="card-company">เนกเจนซอฟ</div>
           <div class="card-position">Software Developer</div>
@@ -1667,10 +1613,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/wintelsoftech.com" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#10b981;display:none">W</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/wintelsoftech.com" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#10b981;display:none">W</div></div>
         <div class="card-content">
           <div class="card-company">WINTEL SOFTECH RECRUITMENT</div>
           <div class="card-position">Front-end/Full stack Developers</div>
@@ -1709,10 +1652,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/iconex.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#f59e0b;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/iconex.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#f59e0b;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท ไอโคเน็กซ์ จำกัด</div>
           <div class="card-position">Programmer (New Graduates, Internship, Cooperative Education)</div>
@@ -1751,10 +1691,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/professional1.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#6366f1;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/professional1.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#6366f1;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท โปรเฟสชันแนลวัน จำกัด</div>
           <div class="card-position">Software Developerr (สมุทรสาคร)</div>
@@ -1793,10 +1730,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/phoonthana.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ec4899;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/phoonthana.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ec4899;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท พูนธนามาร์เก็ตติ้ง จำกัด</div>
           <div class="card-position">Junior Programmer/Developer</div>
@@ -1835,10 +1769,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/convergence-th.com" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#f59e0b;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/convergence-th.com" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#f59e0b;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท คอนเวอร์เจนซ์ เทคโนโลยี จำกัด (Convergence Technology Co.Ltd.)</div>
           <div class="card-position">Software Developer</div>
@@ -1877,10 +1808,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/bjchealth.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#6366f1;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/bjchealth.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#6366f1;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท โรงพยาบาล บีเจเอช จำกัด</div>
           <div class="card-position">Mobile Application Developer (IT)</div>
@@ -1919,10 +1847,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/plusinsight.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#f59e0b;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/plusinsight.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#f59e0b;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท พลัสอินไซ จำกัด</div>
           <div class="card-position">Junior Front-End Developer</div>
@@ -1961,10 +1886,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/convergence-th.com" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#f59e0b;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/convergence-th.com" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#f59e0b;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท คอนเวอร์เจนซ์ เทคโนโลยี จำกัด (Convergence Technology Co.Ltd.)</div>
           <div class="card-position">Software Developer</div>
@@ -2003,10 +1925,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/apexcircuit.com" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ec4899;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/apexcircuit.com" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ec4899;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท เอเพ็กซ์ เซอร์คิต (ไทยแลนด์) จำกัด</div>
           <div class="card-position">Programmer (เขียนโปรแกรม)</div>
@@ -2089,10 +2008,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/softsquare.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#06b6d4;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/softsquare.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#06b6d4;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท ซอฟต์สแควร์ 1999 จำกัด</div>
           <div class="card-position">Software Developer [สนง.ใหญ่ จ.ปทุมธานี]</div>
@@ -2131,10 +2047,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/silkspan.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ec4899;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/silkspan.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ec4899;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท ซิลค์สแปน อินชัวรันซ์ โบรกเกอร์เรจ จำกัด</div>
           <div class="card-position">Programmer ประจำ Office เอกมัย</div>
@@ -2173,10 +2086,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/aline.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ef4444;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/aline.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ef4444;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท อะไลน์ โซลูชั่น จำกัด</div>
           <div class="card-position">Programmer</div>
@@ -2254,10 +2164,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/visionnet.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#14b8a6;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/visionnet.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#14b8a6;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท วิชั่นเน็ต จำกัด</div>
           <div class="card-position">Database Programmer, Application Developer</div>
@@ -2318,10 +2225,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/nextgensoftware.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#f59e0b;display:none">เ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/nextgensoftware.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#f59e0b;display:none">เ</div></div>
         <div class="card-content">
           <div class="card-company">เนกเจนซอฟ</div>
           <div class="card-position">Software Developer</div>
@@ -2360,10 +2264,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/giffarine.com" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#10b981;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/giffarine.com" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#10b981;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท กิฟฟารีน สกายไลน์ ยูนิตี้ จำกัด</div>
           <div class="card-position">เจ้าหน้าที่พัฒนาระบบ (Programmer)</div>
@@ -2402,10 +2303,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/bjchealth.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#6366f1;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/bjchealth.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#6366f1;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท โรงพยาบาล บีเจเอช จำกัด</div>
           <div class="card-position">Mobile Application Developer (IT)</div>
@@ -2444,10 +2342,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/absolutetechno.com" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#8b5cf6;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/absolutetechno.com" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#8b5cf6;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท แอ็บโซลูท เทคโนวัน จำกัด</div>
           <div class="card-position">PHP Web Programmer ทั้งแบบ WFH และประจำ Office</div>
@@ -2486,10 +2381,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/smartsolution.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#6366f1;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/smartsolution.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#6366f1;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท สมาร์ทโซลูชั่น แอนด์ เซอร์วิส จำกัด</div>
           <div class="card-position">Web Programmer</div>
@@ -2528,10 +2420,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/sbcf.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ec4899;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/sbcf.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ec4899;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท เครดิตฟองซิเอร์ เอสเบ จำกัด</div>
           <div class="card-position">programmer(โปรแกรมเมอร์)</div>
@@ -2570,10 +2459,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/somapah.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#06b6d4;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/somapah.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#06b6d4;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท โสมาภา อินฟอร์เมชั่น เทคโนโลยี จำกัด (มหาชน)<span class="listed-badge">SET: SMPC</span></div>
           <div class="card-position">Programmer &amp; Web Application Programmer</div>
@@ -2612,10 +2498,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/rx.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ef4444;display:none">R</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/rx.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ef4444;display:none">R</div></div>
         <div class="card-content">
           <div class="card-company">R.X. Company Limited</div>
           <div class="card-position">Programmer</div>
@@ -2654,10 +2537,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/apexcircuit.com" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ec4899;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/apexcircuit.com" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ec4899;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท เอเพ็กซ์ เซอร์คิต (ไทยแลนด์) จำกัด</div>
           <div class="card-position">Programmer (เขียนโปรแกรม)</div>
@@ -2700,10 +2580,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/siriwattana.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#f59e0b;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/siriwattana.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#f59e0b;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท ศิริวัฒนา อินเตอร์พริ้นท์ จำกัด (มหาชน)<span class="listed-badge">SET: SVOA</span></div>
           <div class="card-position">Programmer</div>
@@ -2742,10 +2619,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/somapah.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#06b6d4;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/somapah.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#06b6d4;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท โสมาภา อินฟอร์เมชั่น เทคโนโลยี จำกัด (มหาชน)<span class="listed-badge">SET: SMPC</span></div>
           <div class="card-position">Programmer &amp; Web Application Programmer</div>
@@ -2784,10 +2658,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/inet.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#10b981;display:none">บ</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/inet.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#10b981;display:none">บ</div></div>
         <div class="card-content">
           <div class="card-company">บริษัท อินเทอร์เน็ตประเทศไทย จำกัด (มหาชน)<span class="listed-badge">SET: INET</span></div>
           <div class="card-position">Programmer / Developer (ยินดีรับนักศึกษาจบใหม่)</div>
@@ -2830,10 +2701,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/maholan.com" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ec4899;display:none">M</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/maholan.com" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ec4899;display:none">M</div></div>
         <div class="card-content">
           <div class="card-company">Maholan Co., Ltd.</div>
           <div class="card-position">Fullstack Developer</div>
@@ -2872,10 +2740,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/futuremakers.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#06b6d4;display:none">F</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/futuremakers.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#06b6d4;display:none">F</div></div>
         <div class="card-content">
           <div class="card-company">Future Makers Co., Ltd.</div>
           <div class="card-position">Full Stack Javascript Developer</div>
@@ -2914,10 +2779,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/aztek.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ef4444;display:none">A</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/aztek.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ef4444;display:none">A</div></div>
         <div class="card-content">
           <div class="card-company">AZTEK CO., LTD.</div>
           <div class="card-position">Full Stack Developer</div>
@@ -2956,10 +2818,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/phithanleasing.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ef4444;display:none">P</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/phithanleasing.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ef4444;display:none">P</div></div>
         <div class="card-content">
           <div class="card-company">PHITHAN LEASING CO., LTD.</div>
           <div class="card-position">PROGRAMMER SOFTWARE DEVELOPER</div>
@@ -2998,10 +2857,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/techinvent.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ec4899;display:none">T</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/techinvent.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ec4899;display:none">T</div></div>
         <div class="card-content">
           <div class="card-company">TECHINVENT CO., LTD.</div>
           <div class="card-position">Programmer/โปรแกรมเมอร์</div>
@@ -3040,10 +2896,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/nilecon.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#06b6d4;display:none">N</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/nilecon.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#06b6d4;display:none">N</div></div>
         <div class="card-content">
           <div class="card-company">NILECON (THAILAND) CO., LTD.</div>
           <div class="card-position">React Native Developer</div>
@@ -3087,10 +2940,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/phithanleasing.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#ef4444;display:none">P</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/phithanleasing.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#ef4444;display:none">P</div></div>
         <div class="card-content">
           <div class="card-company">PHITHAN LEASING CO., LTD.</div>
           <div class="card-position">PROGRAMMER SOFTWARE DEVELOPER</div>
@@ -3149,10 +2999,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system
         </a>
       </div>
       <div class="card-body">
-        <div class="logo-wrap">
-          <img class="logo-img" src="https://logo.clearbit.com/nilecon.co.th" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
-          <div class="logo-fallback" style="background:#06b6d4;display:none">N</div>
-        </div>
+        <div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/nilecon.co.th" alt="" onerror="this.style.display='none';var fb=this.nextElementSibling;if(fb)fb.style.display='flex'"><div class="logo-fallback" style="background:#06b6d4;display:none">N</div></div>
         <div class="card-content">
           <div class="card-company">NILECON (THAILAND) CO., LTD.</div>
           <div class="card-position">React Native Developer</div>
