@@ -458,7 +458,7 @@ def logo_html(info, company):
     colors = ["#6366f1","#10b981","#f59e0b","#8b5cf6","#06b6d4","#ef4444","#ec4899","#14b8a6"]
     color = colors[sum(ord(c) for c in company) % len(colors)]
     if domain:
-        return f'<div class="logo-wrap"><img class="logo-img" src="https://logo.clearbit.com/{domain}" alt="" onerror="this.style.display=\'none\';var fb=this.nextElementSibling;if(fb)fb.style.display=\'flex\'"><div class="logo-fallback" style="background:{color};display:none">{esc(initial)}</div></div>'
+        return f'<div class="logo-wrap"><img class="logo-img" src="https://www.google.com/s2/favicons?domain={domain}&sz=128" alt="" onerror="this.style.display=\'none\';var fb=this.nextElementSibling;if(fb)fb.style.display=\'flex\'"><div class="logo-fallback" style="background:{color};display:none">{esc(initial)}</div></div>'
     return f'<div class="logo-wrap"><div class="logo-fallback" style="background:{color}">{esc(initial)}</div></div>'
 
 def stack_pills(stack):
@@ -654,7 +654,7 @@ body{{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-syste
 
 .card-body{{display:flex;align-items:flex-start;gap:12px;padding:14px 14px 8px}}
 .logo-wrap{{flex-shrink:0;width:44px;height:44px}}
-.logo-img{{width:44px;height:44px;border-radius:8px;object-fit:contain;background:#fff;padding:2px}}
+.logo-img{{width:44px;height:44px;border-radius:8px;object-fit:contain;background:rgba(255,255,255,.08);padding:4px}}
 .logo-fallback{{width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;flex-shrink:0}}
 
 .card-content{{flex:1;min-width:0}}
